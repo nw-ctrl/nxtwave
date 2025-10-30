@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -11,18 +10,13 @@ export const metadata: Metadata = {
   description: 'Transform your business with cutting-edge AI services for content generation, automation, and data analysis',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <Navigation />
         <main>{children}</main>
         <Footer />
-        <Analytics />
       </body>
     </html>
   );
@@ -33,9 +27,7 @@ function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-12">
-          <Link href="/" className="text-xl font-semibold text-white tracking-tight">
-            NextWave
-          </Link>
+          <Link href="/" className="text-xl font-semibold text-white tracking-tight">NextWave</Link>
           <div className="hidden md:flex items-center gap-8">
             <Link href="/services" className="text-white/70 hover:text-white transition text-xs font-normal">Services</Link>
             <Link href="/tools" className="text-white/70 hover:text-white transition text-xs font-normal">AI Tools</Link>
@@ -43,7 +35,6 @@ function Navigation() {
             <Link href="/dashboard" className="text-white/70 hover:text-white transition text-xs font-normal">Analytics</Link>
             <Link href="/contact" className="text-white/70 hover:text-white transition text-xs font-normal">Contact</Link>
           </div>
-
         </div>
       </div>
     </nav>
