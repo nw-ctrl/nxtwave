@@ -14,7 +14,8 @@ export default function ToolsPage() {
             <ToolCard 
               title="Text Generator"
               description="Generate high-quality content for any purpose."
-              comingSoon
+              href="/tools/text-generator"
+              available
             />
             <ToolCard 
               title="Document Summarizer"
@@ -33,16 +34,35 @@ export default function ToolsPage() {
   );
 }
 
-function ToolCard({ title, description, comingSoon }: { title: string; description: string; comingSoon?: boolean }) {
-  return (
-    <div className="bg-zinc-900 rounded-2xl p-7 hover:bg-zinc-800 transition-all duration-300">
+function ToolCard({ title, description, href, available, comingSoon }: { title: string; description: string; href?: string; available?: boolean; comingSoon?: boolean }) {
+  const content = (
+    <>
       <h3 className="text-xl font-semibold text-white mb-3 tracking-tight">{title}</h3>
       <p className="text-white/60 mb-4 font-normal text-sm">{description}</p>
+      {available && (
+        <span className="inline-block bg-white text-black px-3 py-1 rounded-full text-xs font-normal">
+          Try Now →
+        </span>
+      )}
       {comingSoon && (
         <span className="inline-block bg-white/10 text-white/60 px-3 py-1 rounded-full text-xs font-normal">
           Coming Soon
         </span>
       )}
+    </>
+  );
+  
+  if (available && href) {
+    return (
+      <Link href={href} className="bg-zinc-900 rounded-2xl p-7 hover:bg-zinc-800 transition-all duration-300 block">
+        {content}
+      </Link>
+    );
+  }
+  
+  return (
+    <div className="bg-zinc-900 rounded-2xl p-7">
+      {content}
     </div>
   );
 }
