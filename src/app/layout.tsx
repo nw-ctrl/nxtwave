@@ -59,13 +59,12 @@ function ChatbotWidget() {
   const [stage, setStage] = useState("form");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [messages, setMessages] = useState<Array<{ id: number; text: string; sender: string }>>([]);
   const [input, setInput] = useState("");
   const [agreedToDisclaimer, setAgreedToDisclaimer] = useState(false);
 
   const handleStartChat = () => {
-    if (!name.trim() || !email.trim() || !phone.trim() || !agreedToDisclaimer) {
+    if (!name.trim() || !email.trim() || !agreedToDisclaimer) {
       alert("Please fill all fields and agree to the disclaimer");
       return;
     }
@@ -77,7 +76,6 @@ function ChatbotWidget() {
     saveChat({
       name,
       email,
-      phone,
       timestamp: new Date().toISOString(),
       startedChat: true,
     });
@@ -101,7 +99,6 @@ function ChatbotWidget() {
       saveChatMessage({
         name,
         email,
-        phone,
         userMessage: input,
         timestamp: new Date().toISOString(),
       });
@@ -135,13 +132,21 @@ function ChatbotWidget() {
   return (
     <>
       {isOpen && (
-        <div className="fixed left-4 bottom-24 w-96 bg-white rounded-2xl shadow-2xl flex flex-col h-screen md:h-96 z-40">
+        <div className="fixed inset-0 md:inset-auto md:left-4 md:bottom-24 w-full md:w-96 h-full md:h-96 bg-white rounded-none md:rounded-2xl shadow-2xl flex flex-col z-40 md:rounded-2xl">
           {stage === "form" ? (
-            <div className="flex flex-col h-full p-6 space-y-4">
-              <h3 className="text-xl font-semibold text-black">Start a Conversation</h3>
+            <div className="flex flex-col h-full p-4 md:p-6 space-y-3 md:space-y-4">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg md:text-xl font-semibold text-black">Start a Conversation</h3>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="md:hidden text-gray-600 text-2xl hover:text-black"
+                >
+                  ✕
+                </button>
+              </div>
 
               <div>
-                <label className="text-sm font-medium text-gray-700">Name</label>
+                <label className="text-xs md:text-sm font-medium text-gray-700">Name</label>
                 <input
                   type="text"
                   value={name}
@@ -152,7 +157,7 @@ function ChatbotWidget() {
               </div>
 
               <div>
-                <label className="text-sm font-medium text-gray-700">Email</label>
+                <label className="text-xs md:text-sm font-medium text-gray-700">Email</label>
                 <input
                   type="email"
                   value={email}
@@ -162,18 +167,7 @@ function ChatbotWidget() {
                 />
               </div>
 
-              <div>
-                <label className="text-sm font-medium text-gray-700">Phone</label>
-                <input
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+61 123 456 789"
-                  className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-black"
-                />
-              </div>
-
-              <div className="flex-1 bg-gray-50 rounded-lg p-4 overflow-y-auto text-xs text-gray-700 space-y-2">
+              <div className="flex-1 bg-gray-50 rounded-lg p-3 overflow-y-auto text-xs text-gray-700 space-y-2">
                 <p className="font-semibold">Privacy Notice</p>
                 <p>
                   Your information is collected to improve customer experience and service quality. We may use chat conversations for training and analytics purposes to enhance our support systems. Your data is treated with strict confidentiality.
@@ -195,16 +189,16 @@ function ChatbotWidget() {
               <button
                 onClick={handleStartChat}
                 disabled={!agreedToDisclaimer}
-                className="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition disabled:opacity-50"
+                className="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition disabled:opacity-50 text-sm"
               >
                 Start Chat
               </button>
             </div>
           ) : (
             <>
-              <div className="bg-black text-white px-6 py-4 rounded-t-2xl flex justify-between items-center">
+              <div className="bg-black text-white px-4 md:px-6 py-3 md:py-4 rounded-t-none md:rounded-t-2xl flex justify-between items-center">
                 <div>
-                  <h3 className="font-semibold">NextWave Support</h3>
+                  <h3 className="font-semibold text-sm md:text-base">NextWave Support</h3>
                   <p className="text-xs text-gray-300">{name}</p>
                 </div>
                 <button
@@ -218,24 +212,24 @@ function ChatbotWidget() {
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4">
                 {messages.map((msg) => (
                   <div
                     key={msg.id}
                     className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`max-w-xs px-4 py-2 rounded-lg ${
+                      className={`max-w-xs px-3 md:px-4 py-2 rounded-lg text-xs md:text-sm ${
                         msg.sender === "user" ? "bg-black text-white" : "bg-gray-100 text-black"
                       }`}
                     >
-                      <p className="text-sm">{msg.text}</p>
+                      <p>{msg.text}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="border-t border-gray-200 p-4 flex gap-2">
+              <div className="border-t border-gray-200 p-3 md:p-4 flex gap-2">
                 <input
                   type="text"
                   value={input}

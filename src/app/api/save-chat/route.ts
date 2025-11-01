@@ -7,7 +7,6 @@ New Chat Started
 
 Name: ${data.name}
 Email: ${data.email}
-Phone: ${data.phone}
 Time: ${new Date(data.timestamp).toLocaleString()}
 
 This chat has started. They will receive your response shortly.
@@ -21,7 +20,7 @@ This chat has started. They will receive your response shortly.
       },
       body: JSON.stringify({
         from: "noreply@nextwave.au",
-        to: process.env.ADMIN_EMAIL || "admin@nextwave.au",
+        to: process.env.ADMIN_EMAIL || "ns@nextwave.au",
         subject: `New Chat from ${data.name}`,
         html: emailContent,
       }),

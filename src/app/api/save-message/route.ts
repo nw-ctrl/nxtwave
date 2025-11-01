@@ -6,7 +6,6 @@ export async function POST(request: Request) {
 New Message from Chat
 
 From: ${data.name} (${data.email})
-Phone: ${data.phone}
 
 Message:
 ${data.userMessage}
@@ -22,7 +21,7 @@ Time: ${new Date(data.timestamp).toLocaleString()}
       },
       body: JSON.stringify({
         from: "noreply@nextwave.au",
-        to: process.env.ADMIN_EMAIL || "admin@nextwave.au",
+        to: process.env.ADMIN_EMAIL || "ns@nextwave.au",
         subject: `New message from ${data.name}`,
         html: emailContent,
       }),
