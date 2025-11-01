@@ -14,29 +14,62 @@ export default function Layout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      </head>
       <body className={inter.className}>
         <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-900 border-b border-white/10">
           <div className="max-w-7xl mx-auto px-6 h-12 flex justify-between items-center">
-            <Link href="/" className="text-white text-xl font-semibold">
-              NextWave
+            <Link href="/" className="flex items-center gap-0 group">
+              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center font-bold text-lg relative overflow-hidden">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute">
+                  <defs>
+                    <linearGradient id="navGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ffffff" />
+                      <stop offset="50%" stopColor="#d4d4d8" />
+                      <stop offset="100%" stopColor="#71717a" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="100" height="100" fill="black" rx="16" />
+                  <path d="M 25 20 L 25 80 M 75 20 L 75 80 M 25 20 L 75 80" stroke="url(#navGradient)" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              </div>
+
+              <span className="text-white font-bold hidden sm:inline ml-1">EXT</span>
+
+              <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center font-bold text-lg relative overflow-hidden ml-1">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute">
+                  <defs>
+                    <linearGradient id="wGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ffffff" />
+                      <stop offset="50%" stopColor="#d4d4d8" />
+                      <stop offset="100%" stopColor="#71717a" />
+                    </linearGradient>
+                  </defs>
+                  <rect width="100" height="100" fill="black" rx="16" />
+                  <path d="M 15 20 L 25 80 L 35 40 L 50 80 L 65 40 L 75 80 L 85 20" stroke="url(#wGradient)" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
+              </div>
+
+              <span className="text-white font-bold hidden sm:inline ml-1">AVE</span>
             </Link>
             <div className="hidden md:flex gap-8">
-              <Link href="/" className="text-white/70 text-xs">
+              <Link href="/" className="text-white/70 text-xs hover:text-white transition">
                 Home
               </Link>
-              <Link href="/services" className="text-white/70 text-xs">
+              <Link href="/services" className="text-white/70 text-xs hover:text-white transition">
                 Services
               </Link>
-              <Link href="/tools" className="text-white/70 text-xs">
+              <Link href="/tools" className="text-white/70 text-xs hover:text-white transition">
                 Tools
               </Link>
-              <Link href="/pricing" className="text-white/70 text-xs">
+              <Link href="/pricing" className="text-white/70 text-xs hover:text-white transition">
                 Pricing
               </Link>
-              <Link href="/about" className="text-white/70 text-xs">
+              <Link href="/about" className="text-white/70 text-xs hover:text-white transition">
                 About
               </Link>
-              <Link href="/contact" className="text-white/70 text-xs">
+              <Link href="/contact" className="text-white/70 text-xs hover:text-white transition">
                 Contact
               </Link>
             </div>
