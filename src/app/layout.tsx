@@ -3,7 +3,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +12,40 @@ export default function Layout({
 }: {
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    // Track visitor on page load
+    trackVisitor();
+  }, []);
+
+  const trackVisitor = async () => {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const { ip } = await response.json();
+
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const language = navigator.language;
+      const screenResolution = `${window.innerWidth}x${window.innerHeight}`;
+
+      await fetch('/api/analytics/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          event: 'visitor',
+          data: {
+            ip,
+            timezone,
+            language,
+            screenResolution,
+            page: window.location.pathname,
+            referrer: document.referrer || 'Direct',
+          },
+        }),
+      });
+    } catch (error) {
+      console.error('Error tracking visitor:', error);
+    }
+  };
+
   return (
     <html lang="en">
       <head>
@@ -112,6 +146,8 @@ function ChatbotWidget() {
       timestamp: new Date().toISOString(),
       startedChat: true,
     });
+
+    trackAnalytics('chat_started', { name, email });
   };
 
   const handleSend = () => {
@@ -159,6 +195,18 @@ function ChatbotWidget() {
       });
     } catch (error) {
       console.error("Error saving message:", error);
+    }
+  };
+
+  const trackAnalytics = async (event: string, data: any) => {
+    try {
+      await fetch("/api/analytics/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ event, data }),
+      });
+    } catch (error) {
+      console.error("Error tracking:", error);
     }
   };
 

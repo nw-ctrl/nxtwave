@@ -1,0 +1,82 @@
+{
+  "chats": [],
+  "inquiries": [],
+  "visitors": [
+    {
+      "ip": "103.76.159.231",
+      "timezone": "Australia/Sydney",
+      "language": "en-US",
+      "screenResolution": "1528x738",
+      "page": "/contact",
+      "referrer": "http://localhost:3000/contact",
+      "timestamp": "2025-11-01T03:59:34.657Z",
+      "id": "visitor_1761969574657",
+      "userAgent": {
+        "os": "Windows",
+        "browser": "Chrome",
+        "device": "Desktop"
+      }
+    },
+    {
+      "ip": "103.76.159.231",
+      "timezone": "Australia/Sydney",
+      "language": "en-US",
+      "screenResolution": "1528x738",
+      "page": "/",
+      "referrer": "http://localhost:3000/contact",
+      "timestamp": "2025-11-01T03:59:34.897Z",
+      "id": "visitor_1761969574897",
+      "userAgent": {
+        "os": "Windows",
+        "browser": "Chrome",
+        "device": "Desktop"
+      }
+    },
+    {
+      "ip": "103.76.159.231",
+      "timezone": "Australia/Sydney",
+      "language": "en-US",
+      "screenResolution": "1528x738",
+      "page": "/",
+      "referrer": "http://localhost:3000/contact",
+      "timestamp": "2025-11-01T03:59:43.484Z",
+      "id": "visitor_1761969583484",
+      "userAgent": {
+        "os": "Windows",
+        "browser": "Chrome",
+        "device": "Desktop"
+      }
+    },
+    {
+      "ip": "103.76.159.231",
+      "timezone": "Australia/Sydney",
+      "language": "en-US",
+      "screenResolution": "1528x738",
+      "page": "/dashboard",
+      "referrer": "Direct",
+      "timestamp": "2025-11-01T04:00:02.587Z",
+      "id": "visitor_1761969602587",
+      "userAgent": {
+        "os": "Windows",
+        "browser": "Chrome",
+        "device": "Desktop"
+      }
+    },
+    {
+      "ip": "103.76.159.231",
+      "timezone": "Australia/Sydney",
+      "language": "en-US",
+      "screenResolution": "1528x738",
+      "page": "/dashboard/login",
+      "referrer": "Direct",
+      "timestamp": "2025-11-01T04:01:09.003Z",
+      "id": "visitor_1761969669003",
+      "userAgent": {
+        "os": "Windows",
+        "browser": "Chrome",
+        "device": "Desktop"
+      }
+    }
+  ],
+  "pageViews": []
+}
