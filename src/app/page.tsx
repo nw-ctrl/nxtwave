@@ -1,22 +1,24 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Zap, Code, Shield, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'NextWave | AI Content & Automation for Australian Businesses',
-  description: 'AI-powered content creation and marketing automation services. Grow your business with intelligent tools. Start free.',
+  title: 'NextWave | AI Enterprise Solutions & Automation for Australian Businesses',
+  description: 'AI powered content creation and marketing automation services. Grow your business with intelligent tools. Start free.',
   keywords: 'AI services Australia, business automation, AI content marketing, content generation, data analysis',
 };
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-black">
-      {/* --- HERO SECTION (UPDATED) --- */}
+      {/* --- HERO SECTION --- */}
       <section className="min-h-screen flex items-center justify-center px-4 py-20 pt-32">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-6 py-2 mb-8">
-            <Sparkles className="w-4 h-4 text-white" />
-            <span className="text-white/80 text-sm font-normal">AI Content & Marketing Automation</span>
+          {/* --- REFINED TAGLINE --- */}
+          <div className="inline-flex items-center gap-3 bg-white/10 border border-white/20 rounded-full px-6 py-2 mb-8">
+            <Sparkles className="w-5 h-5 text-white" />
+            <span className="text-white/80 text-sm font-normal">Enhance Your Business With Enterprise Grade AI</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-6 leading-tight tracking-tight">
@@ -26,7 +28,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto font-normal">
-            Generate high-quality content in seconds and automate your marketing. Our AI solutions help Australian businesses save time and accelerate growth.
+            Generate high quality content in seconds and automate your marketing. Our AI solutions help Australian businesses save time and accelerate growth.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -46,7 +48,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- OUR SERVICES SECTION (UPDATED) --- */}
+      {/* --- OUR SERVICES SECTION --- */}
       <section className="py-24 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-semibold text-white text-center mb-3 tracking-tight">Our Services</h2>
@@ -58,7 +60,7 @@ export default function HomePage() {
             <ServiceCard
               icon={<Zap className="w-6 h-6" />}
               title="AI Content & Marketing"
-              description="Create SEO-optimized articles, social media posts, and emails with AI, then schedule and automate your campaigns to run on autopilot."
+              description="Create SEO optimized articles, social media posts, and emails with AI, then schedule and automate your campaigns to run on autopilot."
               href="/services"
             />
             <ServiceCard
@@ -77,7 +79,53 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- HOW IT WORKS SECTION (RESTORED) --- */}
+      {/* --- TRUSTED BY ENTERPRISE SECTION --- */}
+      <section className="py-24 px-4 bg-black">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 tracking-tight">Built for Australian Enterprise</h2>
+          <p className="text-xl text-white/60 mb-16 font-normal">
+            Providing scalable and secure AI solutions for high demand business environments.
+          </p>
+          <div className="flex gap-8 flex-wrap items-center justify-center bg-zinc-900/50 p-8 rounded-2xl border border-white/10">
+              <Image src="/retail.svg" alt="Retail Client" width={56} height={56} className="opacity-70 hover:opacity-100 transition" title="Retail & e-Commerce"/>
+              <Image src="/bank.svg" alt="Finance Client" width={56} height={56} className="opacity-70 hover:opacity-100 transition" title="Finance & Banking"/>
+              <Image src="/shopping.svg" alt="E-commerce Client" width={56} height={56} className="opacity-70 hover:opacity-100 transition" title="Shopping & Marketplace"/>
+              <Image src="/business.svg" alt="Corporate Client" width={56} height={56} className="opacity-70 hover:opacity-100 transition" title="Corporate & B2B"/>
+          </div>
+          <p className="text-center text-sm text-white/70 mt-6">
+            Interested in having your business featured? Please&nbsp;
+            <Link href="/contact" className="text-blue-400 underline hover:text-blue-300">contact us</Link>
+            &nbsp;to have your registration verified and your brand showcased.
+          </p>
+        </div>
+      </section>
+
+      {/* --- AUTHENTICITY & SECURITY SECTION --- */}
+      <section className="py-24 px-4 bg-zinc-900">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-8 bg-black border border-white/10 rounded-2xl p-8">
+              {/* --- REFINED TRUST SEAL BACKGROUND --- */}
+              <div className="flex-shrink-0 bg-black rounded-full p-1 w-24 h-24 flex items-center justify-center">
+                  <Image src="/trust-seal.png" alt="100% Secure Trust Seal" width={80} height={80} />
+              </div>
+              <div>
+                  <div className="flex items-center gap-3">
+                      {/* --- REFINED SILVER TEXT --- */}
+                      <span className="text-xl font-bold text-gray-400">Proudly Registered Australian Business</span>
+                      <span role="img" aria-label="Australia" className="text-2xl">🇦🇺</span>
+                  </div>
+                  <p className="text-white/70 text-base mt-2 mb-3">
+                      Officially registered and locally operated under Australian law. We provide authentic data privacy, security compliance, and local support. No offshoring, no surprises.
+                  </p>
+                  <span className="inline-block bg-green-900/60 text-green-400 font-semibold rounded px-3 py-1 mt-1">
+                      100% Locally Owned & Operated
+                  </span>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- HOW IT WORKS SECTION --- */}
       <section className="py-24 px-4 bg-black">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-semibold text-white text-center mb-24 tracking-tight">How It Works</h2>
@@ -90,7 +138,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- READY TO TRANSFORM SECTION (RESTORED) --- */}
+      {/* --- READY TO TRANSFORM SECTION --- */}
       <section className="py-32 px-4 bg-zinc-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tight">Ready to Transform?</h2>
@@ -109,7 +157,7 @@ export default function HomePage() {
   );
 }
 
-// --- HELPER COMPONENTS (RESTORED) ---
+// --- HELPER COMPONENTS (No hyphens) ---
 function ServiceCard({ icon, title, description, href }: { icon: React.ReactNode; title: string; description: string; href: string }) {
   return (
     <Link href={href} className="bg-zinc-800 hover:bg-zinc-700 transition rounded-2xl p-8 border border-white/10 hover:border-white/20 group">
