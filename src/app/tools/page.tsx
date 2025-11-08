@@ -1,4 +1,7 @@
+// src/app/tools/page.tsx
+
 import Link from 'next/link';
+import { BookText, MessageSquare, FileText } from 'lucide-react'; // Import icons
 
 export default function ToolsPage() {
   return (
@@ -12,17 +15,21 @@ export default function ToolsPage() {
           
           <div className="grid md:grid-cols-3 gap-5">
             <ToolCard 
+              icon={<FileText />}
               title="Text Generator"
               description="Generate high-quality content for any purpose."
               href="/tools/text-generator"
               available
             />
             <ToolCard 
+              icon={<BookText />}
               title="Document Summarizer"
               description="Summarize long documents in seconds."
-              comingSoon
+              href="/tools/summarizer" // This now has a link
+              available // And is marked as available
             />
             <ToolCard 
+              icon={<MessageSquare />}
               title="AI Chatbot"
               description="Chat with our intelligent AI assistant."
               comingSoon
@@ -34,34 +41,38 @@ export default function ToolsPage() {
   );
 }
 
-function ToolCard({ title, description, href, available, comingSoon }: { title: string; description: string; href?: string; available?: boolean; comingSoon?: boolean }) {
+// Using a slightly modified version of your ToolCard to be cleaner
+function ToolCard({ icon, title, description, href, available, comingSoon }: { icon: React.ReactNode, title: string; description: string; href?: string; available?: boolean; comingSoon?: boolean }) {
   const content = (
     <>
+      <div className="mb-4">{icon}</div>
       <h3 className="text-xl font-semibold text-white mb-3 tracking-tight">{title}</h3>
       <p className="text-white/60 mb-4 font-normal text-sm">{description}</p>
-      {available && (
-        <span className="inline-block bg-white text-black px-3 py-1 rounded-full text-xs font-normal">
-          Try Now →
-        </span>
-      )}
-      {comingSoon && (
-        <span className="inline-block bg-white/10 text-white/60 px-3 py-1 rounded-full text-xs font-normal">
-          Coming Soon
-        </span>
-      )}
+      <div className="mt-auto">
+        {available && (
+          <span className="inline-block bg-white text-black px-3 py-1 rounded-full text-xs font-normal">
+            Try Now →
+          </span>
+        )}
+        {comingSoon && (
+          <span className="inline-block bg-white/10 text-white/60 px-3 py-1 rounded-full text-xs font-normal">
+            Coming Soon
+          </span>
+        )}
+      </div>
     </>
   );
   
   if (available && href) {
     return (
-      <Link href={href} className="bg-zinc-900 rounded-2xl p-7 hover:bg-zinc-800 transition-all duration-300 block">
+      <Link href={href} className="bg-zinc-900 rounded-2xl p-7 hover:bg-zinc-800 transition-all duration-300 flex flex-col">
         {content}
       </Link>
     );
   }
   
   return (
-    <div className="bg-zinc-900 rounded-2xl p-7">
+    <div className="bg-zinc-900 rounded-2xl p-7 flex flex-col opacity-60">
       {content}
     </div>
   );
