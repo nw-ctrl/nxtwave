@@ -76,6 +76,51 @@
         "browser": "Chrome",
         "device": "Desktop"
       }
+    },
+    {
+      "ip": "103.76.159.227",
+      "timezone": "Australia/Sydney",
+      "language": "en-US",
+      "screenResolution": "1528x738",
+      "page": "/dashboard/login",
+      "referrer": "http://localhost:3000/dashboard/login",
+      "timestamp": "2025-11-08T02:15:46.895Z",
+      "id": "visitor_1762568146895",
+      "userAgent": {
+        "os": "Windows",
+        "browser": "Chrome",
+        "device": "Desktop"
+      }
+    },
+    {
+      "ip": "103.76.159.227",
+      "timezone": "Australia/Sydney",
+      "language": "en-US",
+      "screenResolution": "1528x738",
+      "page": "/services/content-generation",
+      "referrer": "http://localhost:3000/services",
+      "timestamp": "2025-11-08T02:20:48.416Z",
+      "id": "visitor_1762568448417",
+      "userAgent": {
+        "os": "Windows",
+        "browser": "Chrome",
+        "device": "Desktop"
+      }
+    },
+    {
+      "ip": "103.76.159.227",
+      "timezone": "Australia/Sydney",
+      "language": "en-US",
+      "screenResolution": "1528x738",
+      "page": "/services",
+      "referrer": "http://localhost:3000/dashboard/login",
+      "timestamp": "2025-11-08T02:20:50.641Z",
+      "id": "visitor_1762568450641",
+      "userAgent": {
+        "os": "Windows",
+        "browser": "Chrome",
+        "device": "Desktop"
+      }
     }
   ],
   "pageViews": []

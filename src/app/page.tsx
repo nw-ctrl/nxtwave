@@ -3,19 +3,20 @@ import Link from 'next/link';
 import { ArrowRight, Zap, Code, Shield, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'NextWave | AI Solutions for Australian Businesses',
-  description: 'Enterprise-grade AI services for content creation, business automation, and data analysis. Start free with 100 credits monthly.',
-  keywords: 'AI services Australia, business automation, AI tools, content generation, data analysis',
+  title: 'NextWave | AI Content & Automation for Australian Businesses',
+  description: 'AI-powered content creation and marketing automation services. Grow your business with intelligent tools. Start free.',
+  keywords: 'AI services Australia, business automation, AI content marketing, content generation, data analysis',
 };
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-black">
+      {/* --- HERO SECTION (UPDATED) --- */}
       <section className="min-h-screen flex items-center justify-center px-4 py-20 pt-32">
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-6 py-2 mb-8">
             <Sparkles className="w-4 h-4 text-white" />
-            <span className="text-white/80 text-sm font-normal">Enterprise AI Solutions</span>
+            <span className="text-white/80 text-sm font-normal">AI Content & Marketing Automation</span>
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white mb-6 leading-tight tracking-tight">
@@ -25,15 +26,15 @@ export default function HomePage() {
           </h1>
 
           <p className="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl mx-auto font-normal">
-            Accelerate your business with intelligent automation, AI powered content creation, and advanced data analytics. Built for Australian enterprises.
+            Generate high-quality content in seconds and automate your marketing. Our AI solutions help Australian businesses save time and accelerate growth.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/services"
+              href="/pricing"
               className="bg-white text-black px-7 py-3 rounded-full font-semibold text-base hover:bg-white/90 transition flex items-center justify-center gap-2"
             >
-              Explore Services <ArrowRight className="w-4 h-4" />
+              View Plans & Pricing <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/tools"
@@ -45,6 +46,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* --- OUR SERVICES SECTION (UPDATED) --- */}
       <section className="py-24 px-4 bg-zinc-900">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-semibold text-white text-center mb-3 tracking-tight">Our Services</h2>
@@ -55,8 +57,8 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-5">
             <ServiceCard
               icon={<Zap className="w-6 h-6" />}
-              title="Content Generation"
-              description="Professional AI powered content creation for marketing campaigns, social media, and brand communications. Save time and maintain quality."
+              title="AI Content & Marketing"
+              description="Create SEO-optimized articles, social media posts, and emails with AI, then schedule and automate your campaigns to run on autopilot."
               href="/services"
             />
             <ServiceCard
@@ -67,7 +69,7 @@ export default function HomePage() {
             />
             <ServiceCard
               icon={<Shield className="w-6 h-6" />}
-              title="Data Analysis"
+              title="Data Analysis & Insights"
               description="Transform business data into actionable insights. Advanced analytics that reveal trends, patterns, and growth opportunities."
               href="/services"
             />
@@ -75,6 +77,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* --- HOW IT WORKS SECTION (RESTORED) --- */}
       <section className="py-24 px-4 bg-black">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-semibold text-white text-center mb-24 tracking-tight">How It Works</h2>
@@ -87,6 +90,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* --- READY TO TRANSFORM SECTION (RESTORED) --- */}
       <section className="py-32 px-4 bg-zinc-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6 tracking-tight">Ready to Transform?</h2>
@@ -105,6 +109,7 @@ export default function HomePage() {
   );
 }
 
+// --- HELPER COMPONENTS (RESTORED) ---
 function ServiceCard({ icon, title, description, href }: { icon: React.ReactNode; title: string; description: string; href: string }) {
   return (
     <Link href={href} className="bg-zinc-800 hover:bg-zinc-700 transition rounded-2xl p-8 border border-white/10 hover:border-white/20 group">
