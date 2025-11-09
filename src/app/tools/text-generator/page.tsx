@@ -1,8 +1,10 @@
+// src/app/tools/text-generator/page.tsx
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Sparkles } from 'lucide-react';
+import EnterpriseCTA from '../../../components/EnterpriseCTA';
 
 export default function TextGeneratorPage() {
   const [prompt, setPrompt] = useState('');
@@ -43,10 +45,10 @@ export default function TextGeneratorPage() {
           </div>
           
           <p className="text-xl text-white/60 mb-12 font-normal">
-            Generate high-quality content for blogs, social media, emails, and more.
+            Generate high quality content for blogs, social media, emails, and more.
           </p>
           
-          <div className="bg-zinc-900 rounded-2xl p-8 space-y-6">
+          <div className="bg-zinc-900 rounded-2xl p-8 space-y-6 mb-8">
             <div>
               <label className="block text-white font-normal mb-3 text-sm">What would you like to create?</label>
               <textarea
@@ -76,18 +78,8 @@ export default function TextGeneratorPage() {
             )}
           </div>
           
-          <div className="mt-12 bg-zinc-900 rounded-2xl p-8">
-            <h2 className="text-2xl font-semibold text-white mb-4 tracking-tight">Need Professional AI Content?</h2>
-            <p className="text-white/60 mb-6 font-normal">
-              Get unlimited AI-generated content tailored to your business needs. We deliver high-quality blogs, social media posts, emails, and marketing copy.
-            </p>
-            <Link 
-              href="/contact"
-              className="inline-flex bg-white text-black px-7 py-3 rounded-full font-normal hover:bg-white/90 transition"
-            >
-              Get Custom Content Service
-            </Link>
-          </div>
+          {/* Enterprise CTA */}
+          <EnterpriseCTA />
         </div>
       </div>
     </div>

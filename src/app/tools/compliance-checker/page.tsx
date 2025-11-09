@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import { Shield, Download, CheckCircle2, AlertTriangle } from 'lucide-react';
+import EnterpriseCTA from '../../../components/EnterpriseCTA';
 
 type ComplianceItem = {
   id: string;
@@ -212,7 +213,7 @@ export default function ComplianceCheckerPage() {
           </div>
 
           {checklist.length > 0 && (
-            <div className="bg-zinc-900 rounded-2xl p-8">
+            <div className="bg-zinc-900 rounded-2xl p-8 mb-8">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-semibold">Your Compliance Checklist</h2>
                 <span className="bg-blue-600 px-4 py-2 rounded-full text-sm font-semibold">
@@ -270,6 +271,9 @@ export default function ComplianceCheckerPage() {
               </div>
             </div>
           )}
+
+          {/* Enterprise CTA */}
+          <EnterpriseCTA />
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@
 import { useState, useRef } from 'react';
 import { BookText, Sparkles, Upload, X, Clipboard, Check } from 'lucide-react';
 import Image from 'next/image';
+import EnterpriseCTA from '../../../components/EnterpriseCTA';
 
 const loadingMessages = [
   "The magic is in progress...", "Distilling the key points...", "Analyzing your text...", "Crafting the perfect summary...",
@@ -86,7 +87,6 @@ export default function SummarizerPage() {
           </div>
 
           <div className="space-y-8">
-            {/* ... (rest of the form is the same) ... */}
             <div>
               <label className="text-lg font-semibold mb-3 block">Your Content</label>
               <textarea
@@ -139,10 +139,10 @@ export default function SummarizerPage() {
               </div>
             )}
             
-            <div className="flex items-center gap-4 bg-zinc-900/50 border border-white/10 rounded-lg p-4 mt-8">
+            <div className="flex items-center gap-4 bg-zinc-900/50 border border-white/10 rounded-lg p-4">
                 <div className="flex-shrink-0">
                     <Image 
-                      src="/trust-seal.png" // Pointing to the new file you created
+                      src="/trust-seal.png"
                       alt="100% Secure Trust Seal"
                       width={60}
                       height={60}
@@ -154,6 +154,9 @@ export default function SummarizerPage() {
                 </div>
             </div>
           </div>
+
+          {/* Enterprise CTA */}
+          <EnterpriseCTA />
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Send, Sparkles, User } from 'lucide-react';
+import EnterpriseCTA from '../../../components/EnterpriseCTA';
 
 type Message = {
   id: string;
@@ -119,7 +120,7 @@ export default function ChatbotPage() {
           </div>
 
           {/* Chat Input */}
-          <form onSubmit={handleSubmit} className="relative">
+          <form onSubmit={handleSubmit} className="relative mb-8">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -135,6 +136,9 @@ export default function ChatbotPage() {
               <Send className="w-5 h-5 text-white" />
             </button>
           </form>
+
+          {/* Enterprise CTA */}
+          <EnterpriseCTA />
         </div>
       </div>
     </div>

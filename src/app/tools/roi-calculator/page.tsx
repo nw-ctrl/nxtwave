@@ -4,6 +4,9 @@
 import { useState } from 'react';
 import { Calculator, Download, TrendingUp } from 'lucide-react';
 import jsPDF from 'jspdf';
+import EnterpriseCTA from '../../../components/EnterpriseCTA';
+
+
 
 export default function ROICalculatorPage() {
   const [currentAnnualCost, setCurrentAnnualCost] = useState<number>(0);
@@ -19,7 +22,7 @@ export default function ROICalculatorPage() {
   };
 
   const calculateErrorCost = () => {
-    const avgErrorCost = 200; // Conservative estimate per error
+    const avgErrorCost = 200;
     const errorsPerYear = (hoursPerWeek * 52) * (errorRate / 100);
     return errorsPerYear * avgErrorCost;
   };
@@ -156,7 +159,7 @@ export default function ROICalculatorPage() {
                   className="w-full bg-zinc-800 border border-white/10 rounded-lg p-3 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="e.g., 5"
                 />
-                <p className="text-xs text-white/50 mt-1">Manual processes typically have 3-10% error rates</p>
+                <p className="text-xs text-white/50 mt-1">Manual processes typically have 3 to 10% error rates</p>
               </div>
 
               <h2 className="text-2xl font-semibold mb-6 pt-6 border-t border-white/10">Automation Plan</h2>
@@ -182,7 +185,7 @@ export default function ROICalculatorPage() {
                   className="w-full bg-zinc-800 border border-white/10 rounded-lg p-3 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="e.g., 60"
                 />
-                <p className="text-xs text-white/50 mt-1">Industry average: 40-70% for document automation</p>
+                <p className="text-xs text-white/50 mt-1">Industry average: 40 to 70% for document automation</p>
               </div>
 
               <div>
@@ -194,7 +197,7 @@ export default function ROICalculatorPage() {
                   className="w-full bg-zinc-800 border border-white/10 rounded-lg p-3 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="e.g., 80"
                 />
-                <p className="text-xs text-white/50 mt-1">Automation typically reduces errors by 70-95%</p>
+                <p className="text-xs text-white/50 mt-1">Automation typically reduces errors by 70 to 95%</p>
               </div>
             </div>
 
@@ -272,6 +275,9 @@ export default function ROICalculatorPage() {
               </button>
             </div>
           </div>
+
+          {/* Enterprise CTA - NEW ADDITION */}
+          <EnterpriseCTA />
         </div>
       </div>
     </div>

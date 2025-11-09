@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FileText, Download, Plus, Trash2 } from 'lucide-react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import EnterpriseCTA from '../../../components/EnterpriseCTA';
 
 type LineItem = {
   id: string;
@@ -62,30 +63,28 @@ export default function InvoiceGeneratorPage() {
   const calculateGST = () => {
     const subtotal = calculateSubtotal();
     if (taxInclusive) {
-      return subtotal * (1 / 11); // GST component of tax-inclusive price
+      return subtotal * (1 / 11);
     } else {
-      return subtotal * 0.1; // 10% GST added
+      return subtotal * 0.1;
     }
   };
 
   const calculateTotal = () => {
     const subtotal = calculateSubtotal();
     if (taxInclusive) {
-      return subtotal; // Already includes GST
+      return subtotal;
     } else {
-      return subtotal + calculateGST(); // Add GST
+      return subtotal + calculateGST();
     }
   };
 
   const generatePDF = () => {
     const doc = new jsPDF();
     
-    // Header
     doc.setFontSize(24);
     doc.setFont('helvetica', 'bold');
     doc.text('TAX INVOICE', 105, 20, { align: 'center' });
     
-    // From Section
     doc.setFontSize(10);
     doc.setFont('helvetica', 'bold');
     doc.text('From:', 20, 40);
@@ -95,7 +94,6 @@ export default function InvoiceGeneratorPage() {
     doc.text(fromAddress, 20, 58);
     doc.text(fromEmail, 20, 64);
     
-    // To Section
     doc.setFont('helvetica', 'bold');
     doc.text('Bill To:', 120, 40);
     doc.setFont('helvetica', 'normal');
@@ -103,7 +101,6 @@ export default function InvoiceGeneratorPage() {
     doc.text(toAddress, 120, 52);
     doc.text(toEmail, 120, 58);
     
-    // Invoice Details
     doc.setFont('helvetica', 'bold');
     doc.text(`Invoice #: ${invoiceNumber}`, 20, 80);
     doc.text(`Date: ${invoiceDate}`, 20, 86);
@@ -111,7 +108,6 @@ export default function InvoiceGeneratorPage() {
       doc.text(`Due Date: ${dueDate}`, 20, 92);
     }
     
-    // Line Items Table
     const tableData = lineItems.map(item => [
       item.description,
       item.quantity.toString(),
@@ -127,7 +123,6 @@ export default function InvoiceGeneratorPage() {
       headStyles: { fillColor: [59, 130, 246] },
     });
     
-    // Totals
     const finalY = (doc as any).lastAutoTable.finalY + 10;
     const subtotal = calculateSubtotal();
     const gst = calculateGST();
@@ -145,7 +140,6 @@ export default function InvoiceGeneratorPage() {
     doc.text('Total:', 120, finalY + 14);
     doc.text(`$${total.toFixed(2)}`, 180, finalY + 14, { align: 'right' });
     
-    // Notes
     if (notes) {
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
@@ -153,12 +147,10 @@ export default function InvoiceGeneratorPage() {
       doc.text(notes, 20, finalY + 36, { maxWidth: 170 });
     }
     
-    // Footer
     doc.setFontSize(8);
     doc.setTextColor(128, 128, 128);
     doc.text('This is a valid tax invoice for GST purposes.', 105, 280, { align: 'center' });
     
-    // Save
     doc.save(`${invoiceNumber}.pdf`);
   };
 
@@ -171,7 +163,7 @@ export default function InvoiceGeneratorPage() {
             <p className="text-lg text-white/60">Create ATO compliant tax invoices with GST calculations</p>
           </div>
 
-          <div className="bg-zinc-900 rounded-2xl p-8 space-y-8">
+          <div className="bg-zinc-900 rounded-2xl p-8 space-y-8 mb-8">
             {/* Invoice Details */}
             <div className="grid md:grid-cols-3 gap-4">
               <div>
@@ -362,6 +354,9 @@ export default function InvoiceGeneratorPage() {
               <Download className="w-5 h-5" /> Generate PDF Invoice
             </button>
           </div>
+
+          {/* Enterprise CTA */}
+          <EnterpriseCTA />
         </div>
       </div>
     </div>

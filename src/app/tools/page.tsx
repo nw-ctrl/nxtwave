@@ -1,7 +1,7 @@
 // src/app/tools/page.tsx
 
 import Link from 'next/link';
-import { BookText, MessageSquare, FileText, Receipt, Calculator, Shield } from 'lucide-react'; // Added Calculator and Shield icons
+import { BookText, MessageSquare, FileText, Receipt, Calculator, Shield, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function ToolsPage() {
   return (
@@ -13,7 +13,7 @@ export default function ToolsPage() {
             Try our AI powered tools instantly. No signup required.
           </p>
           
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-5 mb-16">
             <ToolCard 
               icon={<FileText />}
               title="Text Generator"
@@ -57,13 +57,34 @@ export default function ToolsPage() {
               available
             />
           </div>
+
+          {/* Enterprise CTA Section */}
+          <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 text-center border border-blue-500/30">
+            <div className="flex justify-center mb-4">
+              <Sparkles className="w-12 h-12 text-white" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+              Need Custom Tools for Your Organization?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              We build enterprise-grade AI automation solutions tailored to your business workflows. From custom dashboards to full-stack integrations.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition shadow-lg"
+            >
+              Contact Our Team <ArrowRight className="w-5 h-5" />
+            </Link>
+            <p className="text-blue-200 text-sm mt-4">
+              Join Australian enterprises already using NextWave.au
+            </p>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-// Your existing ToolCard component is perfect and does not need any changes.
 function ToolCard({ icon, title, description, href, available, comingSoon }: { icon: React.ReactNode, title: string; description: string; href?: string; available?: boolean; comingSoon?: boolean }) {
   const content = (
     <>
