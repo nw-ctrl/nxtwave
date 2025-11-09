@@ -1,7 +1,7 @@
 // src/app/tools/page.tsx
 
 import Link from 'next/link';
-import { BookText, MessageSquare, FileText } from 'lucide-react'; // Import icons
+import { BookText, MessageSquare, FileText, Receipt } from 'lucide-react'; // Added Receipt icon
 
 export default function ToolsPage() {
   return (
@@ -10,14 +10,14 @@ export default function ToolsPage() {
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-semibold text-white mb-5 text-center tracking-tight">Free AI Tools</h1>
           <p className="text-xl text-white/60 mb-20 text-center max-w-3xl mx-auto font-normal">
-            Try our AI-powered tools instantly. No signup required.
+            Try our AI powered tools instantly. No signup required.
           </p>
           
           <div className="grid md:grid-cols-3 gap-5">
             <ToolCard 
               icon={<FileText />}
               title="Text Generator"
-              description="Generate high-quality content for any purpose."
+              description="Generate high quality content for any purpose."
               href="/tools/text-generator"
               available
             />
@@ -28,13 +28,20 @@ export default function ToolsPage() {
               href="/tools/summarizer"
               available
             />
-            {/* --- THIS IS THE ONLY CHANGE --- */}
             <ToolCard 
               icon={<MessageSquare />}
               title="AI Chatbot"
               description="Chat with our intelligent AI assistant."
-              href="/tools/chatbot" // <-- Added the link
-              available // <-- Changed 'comingSoon' to 'available'
+              href="/tools/chatbot"
+              available
+            />
+            {/* NEW TOOL ADDED */}
+            <ToolCard 
+              icon={<Receipt />}
+              title="Invoice Generator"
+              description="Create ATO compliant tax invoices with GST."
+              href="/tools/invoice-generator"
+              available
             />
           </div>
         </div>
