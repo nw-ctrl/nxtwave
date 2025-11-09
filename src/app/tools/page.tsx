@@ -25,14 +25,16 @@ export default function ToolsPage() {
               icon={<BookText />}
               title="Document Summarizer"
               description="Summarize long documents in seconds."
-              href="/tools/summarizer" // This now has a link
-              available // And is marked as available
+              href="/tools/summarizer"
+              available
             />
+            {/* --- THIS IS THE ONLY CHANGE --- */}
             <ToolCard 
               icon={<MessageSquare />}
               title="AI Chatbot"
               description="Chat with our intelligent AI assistant."
-              comingSoon
+              href="/tools/chatbot" // <-- Added the link
+              available // <-- Changed 'comingSoon' to 'available'
             />
           </div>
         </div>
@@ -41,7 +43,7 @@ export default function ToolsPage() {
   );
 }
 
-// Using a slightly modified version of your ToolCard to be cleaner
+// Your existing ToolCard component is perfect and does not need any changes.
 function ToolCard({ icon, title, description, href, available, comingSoon }: { icon: React.ReactNode, title: string; description: string; href?: string; available?: boolean; comingSoon?: boolean }) {
   const content = (
     <>
