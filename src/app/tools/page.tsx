@@ -1,7 +1,7 @@
 // src/app/tools/page.tsx
 
 import Link from 'next/link';
-import { BookText, MessageSquare, FileText, Receipt } from 'lucide-react'; // Added Receipt icon
+import { BookText, MessageSquare, FileText, Receipt, Calculator, Shield } from 'lucide-react'; // Added Calculator and Shield icons
 
 export default function ToolsPage() {
   return (
@@ -35,12 +35,25 @@ export default function ToolsPage() {
               href="/tools/chatbot"
               available
             />
-            {/* NEW TOOL ADDED */}
             <ToolCard 
               icon={<Receipt />}
               title="Invoice Generator"
               description="Create ATO compliant tax invoices with GST."
               href="/tools/invoice-generator"
+              available
+            />
+            <ToolCard 
+              icon={<Calculator />}
+              title="ROI Calculator"
+              description="Calculate automation ROI and payback period."
+              href="/tools/roi-calculator"
+              available
+            />
+            <ToolCard 
+              icon={<Shield />}
+              title="Compliance Checker"
+              description="Generate Australian compliance checklists."
+              href="/tools/compliance-checker"
               available
             />
           </div>
