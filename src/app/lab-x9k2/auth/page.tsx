@@ -50,7 +50,7 @@ export default function LabAuth() {
             required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter lab password (test123)"
+            placeholder="Enter lab password"
             className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             disabled={loading}
             autoFocus
@@ -68,9 +68,6 @@ export default function LabAuth() {
             {loading ? 'Authenticating...' : 'Access Lab'}
           </button>
         </form>
-        <p className="text-xs text-center text-gray-500">
-          Default password: test123
-        </p>
       </div>
     </div>
   );

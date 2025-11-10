@@ -5,15 +5,12 @@ export async function POST(request: Request) {
   try {
     const { password } = await request.json();
     
-    console.log('Password attempt:', password); // Debug log
-    console.log('Expected password:', process.env.LAB_PASSWORD); // Debug log
-    
     if (password === process.env.LAB_PASSWORD) {
       const cookieStore = await cookies();
       cookieStore.set('lab-authenticated', 'true', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        maxAge: 86400, // 24 hours
+        maxAge: 86400,
         path: '/',
         sameSite: 'lax',
       });
