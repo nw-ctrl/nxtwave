@@ -42,7 +42,7 @@ const pricingTiers: PricingTier[] = [
       'Increased free tool limits',
       'Standard email support',
     ],
-    priceId: 'price_1SRTqX6lwMXBZUylRW44ZrCM', // REPLACE WITH YOUR ACTUAL PRICE ID
+    priceId: 'price_1SRsHu5oFCWl5PDcqvzZmYT1', // REPLACE WITH YOUR ACTUAL PRICE ID
     type: 'subscription',
     highlighted: true,
     cta: 'Subscribe Now',
@@ -59,7 +59,7 @@ const pricingTiers: PricingTier[] = [
       'Priority email support',
       'API Access',
     ],
-    priceId: 'price_1SRTtZ6lwMXBZUyl7pz2dtF1', // REPLACE WITH YOUR ACTUAL PRICE ID
+    priceId: 'price_1SRsK55oFCWl5PDcdIwZ19Me', // REPLACE WITH YOUR ACTUAL PRICE ID
     type: 'subscription',
     cta: 'Subscribe Now',
   },
@@ -74,7 +74,7 @@ const pricingTiers: PricingTier[] = [
       'Implementation roadmap',
       'Follow-up email support',
     ],
-    priceId: 'price_1SRTz96lwMXBZUylVzQBRyad', // REPLACE WITH YOUR ACTUAL PRICE ID
+    priceId: 'price_1SRsLi5oFCWl5PDcw54ql8xq', // REPLACE WITH YOUR ACTUAL PRICE ID
     type: 'payment',
     cta: 'Book Session',
   },
@@ -90,7 +90,7 @@ const pricingTiers: PricingTier[] = [
       'Dedicated account manager',
       'Priority support',
     ],
-    priceId: 'price_1SRU1K6lwMXBZUyl5nugo2qM', // REPLACE WITH YOUR ACTUAL PRICE ID
+    priceId: 'price_1SRsNU5oFCWl5PDcEvlSpKB8', // REPLACE WITH YOUR ACTUAL PRICE ID
     type: 'subscription',
     cta: 'Subscribe Now',
   },
