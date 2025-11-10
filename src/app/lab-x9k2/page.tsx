@@ -50,7 +50,7 @@ export default async function LabLibrary() {
                 </li>
                 <li className="flex items-center">
                   <span className="text-blue-500 mr-2">→</span>
-                  API Docs: <a href="http://localhost:8000/api/docs" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">http://localhost:8000/api/docs</a>
+                    API Docs: <a href="/api/docs" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">/api/docs</a>
                 </li>
               </ul>
             </div>

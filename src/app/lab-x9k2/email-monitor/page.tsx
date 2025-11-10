@@ -11,6 +11,7 @@ export default function EmailMonitor() {
     setResult(null);
     
     try {
+      // Use relative URL - works in both local and production
       const response = await fetch(`/api/lab/email-monitor/scan?folder=${encodeURIComponent(folder)}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -21,11 +22,11 @@ export default function EmailMonitor() {
       if (response.ok) {
         setResult(data);
       } else {
-        setResult({ error: data.detail || 'Failed to scan emails' });
+        setResult({ error: data.detail || data.error || 'Failed to scan emails' });
       }
     } catch (error) {
       console.error('Scan failed:', error);
-      setResult({ error: 'Failed to connect to API. Make sure Python server is running.' });
+      setResult({ error: 'Failed to connect to API. Please try again.' });
     } finally {
       setLoading(false);
     }
