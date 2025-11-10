@@ -12,7 +12,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify your domain
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -60,7 +60,7 @@ async def get_status():
     return {
         "status": "active",
         "active_monitors": 1,
-        "last_scan": "2025-11-10 21:51:00"
+        "last_scan": "2025-11-10 22:01:00"
     }
 
 # Vercel handler
